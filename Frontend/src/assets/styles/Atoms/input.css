@@ -1,0 +1,26 @@
+.Input-salud {
+    background-color: #f0f4f8; 
+    color: #333; 
+    border: 2px solid #4CAF50; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: normal;
+    width: 15%;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.Input-salud:focus {
+    border-color: #45a049; 
+    outline: none;
+    box-shadow: 0 0 8px rgba(72, 204, 120, 0.4); 
+}
+
+.Input-salud:hover {
+    border-color: #66bb6a; 
+}
+
+.Input-salud::placeholder {
+    color: #a0a0a0; 
+    font-style: italic; 
+}

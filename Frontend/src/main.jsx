@@ -1,10 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
+import 'primereact/resources/themes/saga-blue/theme.css';
+import { PrimeReactProvider } from "primereact/api";
+
+const root=createRoot(document.getElementById('frontend'));
+root.render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <PrimeReactProvider>
+      <App />
+    </PrimeReactProvider>
+  </StrictMode>
+);

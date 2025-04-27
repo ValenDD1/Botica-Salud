@@ -1,0 +1,16 @@
+.Text-salud {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin: 20px 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.Text-salud .icon {
+    margin-right: 10px;
+    font-size: 22px;
+    color: #007bff;
+}

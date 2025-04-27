@@ -1,0 +1,38 @@
+
+.Button-salud {
+    background-color: #5086cc; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.Button-salud:hover {
+    background-color: #45a049; 
+    transform: translateY(-2px); 
+}
+
+@keyframes hoverEffect {
+    0% {
+        background-color: #5086cc; 
+    }
+    100% {
+        background-color: #45a049; 
+    }
+}
+
+.Button-salud:hover {
+    animation: hoverEffect 0.3s forwards;
+}
+
+.Button-salud .fa {
+    margin-right: 8px; 
+}
