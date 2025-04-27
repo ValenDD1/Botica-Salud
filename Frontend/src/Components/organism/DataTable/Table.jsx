@@ -27,7 +27,7 @@ export const Table = ({data, column, onEdit}) => {
                         />
                     );
                 })}
-                {/* Columna para acciones (editar) */}
+                
                 <Column
                     body={(rowdata) => (
                         <button 

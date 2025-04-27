@@ -4,7 +4,7 @@ import { Button } from "../atoms/Buttons/Button"
 import { Input } from "../atoms/Inputs/input"
 import { Title } from "../atoms/Titles/Title"
 import { Text } from "../atoms/Titles/Text"
-import { Table } from "../atoms/DataTable/Table"
+import { Table } from "../organism/DataTable/Table"
 
 import {faBell} from '@fortawesome/free-solid-svg-icons'
 
@@ -50,7 +50,7 @@ export const Login=()=>{
             <Table 
                 data={Data} 
                 column={column} 
-                onEdit={handleEdit}
+                onEdit={handleEdit} 
             />
             <Button text='Notificaciones' Icon={faBell} ></Button>
             <Input text='Correo' type='search' ></Input>

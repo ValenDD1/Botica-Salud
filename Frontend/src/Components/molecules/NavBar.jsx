@@ -1,14 +1,21 @@
+//atomos
 import { Text } from "../atoms/Titles/Text"
 import { Title } from "../atoms/Titles/Title"
 
-
-export const NavBar=() => {
+import '../../assets/styles/Molecules/navBar.css'
+import { Link } from "react-router-dom"
+export const NavBar=({data}) => {
     return (
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
+        <nav className="navbar" >
+            <Title title='Botica Nova Salud' hs="h2"/>
+            <ul className="nav-links" >
+                {data.map((item) => (
+                    <li>
+                        <Link to={item?.link} >
+                            <Text text={item?.text} icon={item?.icon} />
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     )
