@@ -1,0 +1,24 @@
+.sales-container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 2rem; /* Espacio entre los elementos */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.sales-container2 > * {
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.sales-form,
+.sales-table-container {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .sales-container2 {
+        grid-template-columns: 1fr; 
+    }
+}

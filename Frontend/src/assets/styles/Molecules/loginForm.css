@@ -1,0 +1,102 @@
+/* loginForm.css */
+
+/* Contenedor principal */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f7fc;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Estilo de la cabecera */
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h1 {
+    font-family: 'Arial', sans-serif;
+    color: #4A90E2;
+    font-size: 2.5rem;
+}
+
+/* Formulario */
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Estilo para los campos de texto */
+.login-form label {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: #4A90E2;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Estilo del input */
+.Input-salud {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.Input-salud:focus {
+    border-color: #4A90E2;
+    outline: none;
+}
+
+/* Estilo del botón */
+.Button-salud {
+    background-color: #4A90E2;
+    border: none;
+    padding: 0.6rem; /* Tamaño del botón ajustado */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem; /* Separación de los inputs */
+    box-sizing: border-box; /* Asegura que el tamaño del botón esté contenido */
+}
+
+.Button-salud:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+/* Efecto de foco para los iconos de los inputs */
+.Input-salud:focus + .icon {
+    color: #4A90E2;
+}
+
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 1rem;
+    }
+
+    .login-form {
+        width: 90%;
+    }
+
+    .login-header h1 {
+        font-size: 2rem;
+    }
+}

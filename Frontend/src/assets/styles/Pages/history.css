@@ -1,0 +1,38 @@
+.history-container {
+    padding: 2rem;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+.history-header {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.grafics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.grafics > div {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* MISMA altura para ambos gráficos */
+}
+
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .grafics {
+        grid-template-columns: 1fr;
+    }
+}

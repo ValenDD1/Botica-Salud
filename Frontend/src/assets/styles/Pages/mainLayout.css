@@ -1,0 +1,24 @@
+/* assets/styles/Molecules/mainLayout.css */
+.main-layout {
+    display: grid;
+    grid-template-columns: 10px 1fr;  /* El NavBar ocupa 250px y el contenido usa el resto del espacio */
+    grid-template-rows: 100vh;  /* Asegura que la altura sea completa */
+}
+
+.content {
+    padding: 20px;  /* Espacio alrededor del contenido */
+    background-color: #f4f7f6;  /* Fondo claro para el contenido */
+    margin-left: 250px;  /* Esto asegura que el contenido no choque con el navbar */
+    transition: margin-left 0.3s ease;  /* Animación de transición si se cambia el layout */
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;  /* En pantallas pequeñas, todo se apila */
+        grid-template-rows: auto;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}

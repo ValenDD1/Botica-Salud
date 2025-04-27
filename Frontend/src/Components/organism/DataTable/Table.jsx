@@ -15,6 +15,7 @@ export const Table = ({data, column, onEdit}) => {
                 paginator
                 rows={6}
                 scrollable
+                tableStyle={{ minWidth: '50rem' }}
                 scrollHeight="600px"
             >
                 {column.map ((col, index) => {

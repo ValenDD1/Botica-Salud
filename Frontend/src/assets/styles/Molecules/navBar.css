@@ -1,26 +1,62 @@
 /* assets/styles/Molecules/navbar.css */
 .navbar {
+    width: 250px;
+    height: 100vh;
+    background-color: #84a4c2; 
+    color: white;
+    padding: 1.5rem 0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #00aaff;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
-    display: flex;
     list-style: none;
-    gap: 1.5rem;
+    padding: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Link Styling */
 .nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #1c2224;
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    
 }
 
+/* Hover Effect */
 .nav-links a:hover {
-    color: #00ff99;
+background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-links .icon {
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Logout Button Styling */
+.nav-links li:last-child {
+    margin-top: auto;
+    padding: 1rem 1.5rem 0;
+    border-top: 1px solid rgba(22, 20, 20, 0.1);
+}
+
+.nav-links li:last-child a {
+    padding: 0;
+    display: block;
+}
+
+/* Active Link Styling */
+.nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 3px solid #3498db;
 }
