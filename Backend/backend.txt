@@ -1,0 +1,8 @@
+Aqui se usara nodejs para crear las apirest ,abrir el servidor y poder llevar los datos a mi base de datos 
+
+se usara
+
+-Mysql
+-Js
+-nodejs
+-Phpadmin
