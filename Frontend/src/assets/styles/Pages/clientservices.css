@@ -1,0 +1,114 @@
+/* Estilos principales para el contenedor de la página */
+.ClientServices-container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f7fa;
+    min-height: 100vh;
+}
+
+/* Encabezado de la sección */
+.ClientServices-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.ClientServices-header .Title {
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+}
+
+.ClientServices-header .Button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ClientServices-header .Button:hover {
+    background-color: #218838;
+}
+
+/* Estilos para la tabla de servicios */
+.ClientServices-table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las tablas */
+.ClientServices-table .Table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ClientServices-table .Table th, .ClientServices-table .Table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #555;
+}
+
+.ClientServices-table .Table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+.ClientServices-table .Table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para las celdas de la tabla */
+.ClientServices-table .Table td {
+    vertical-align: middle;
+}
+
+/* Estilo para los íconos */
+.ClientServices-header .Button svg {
+    font-size: 18px;
+}
+
+/* Respuesta en dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .ClientServices-container {
+        padding: 15px;
+    }
+
+    .ClientServices-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ClientServices-header .Title {
+        font-size: 20px;
+    }
+
+    .ClientServices-header .Button {
+        margin-top: 10px;
+    }
+
+    .ClientServices-table {
+        padding: 15px;
+    }
+
+    .ClientServices-table .Table th, .ClientServices-table .Table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

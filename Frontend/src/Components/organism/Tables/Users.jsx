@@ -2,53 +2,103 @@ import { Table } from "../DataTable/Table"
 import { Title } from "../../atoms/Titles/Title"
 import { Button } from "../../atoms/Buttons/Button"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
-
+import axios from "axios"
+import { useState,useEffect } from "react"
 import '../../../assets/styles/Organism/users.css'
+import { UserModal } from "../Modals/UsersModal"
 
 
-const Data=[
-    {
-        id:1,
-        name:'admin',
-        email:'dsy@dsy.com',
-        estado:'Activo',
-    },
-    {
-        id:2,
-        name:'admin',
-        email:'dsy@dsy.com',
-        estado:'Activo',
-    },
-    {
-        id:3,
-        name:'admin',
-        email:'dsy@dsy.com',
-        estado:'Activo',
-    },
-    {
-        id:4,
-        name:'admin',
-        email:'dsy@dsy.com',
-        estado:'Activo',
-    }
-]
 const columns=[
     { field: 'id', header: 'ID' },
-    { field: 'name', header: 'Nombre' },
-    { field: 'email', header: 'Correo' },
+    { field: 'nombre_usuario', header: 'Nombre' },
+    { field: 'correo', header: 'Correo' },
     { field: 'estado', header: 'Estado' },
 ]
 
 export const UserTable=()=>{
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [editProduct, setEditProduct] = useState(null);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    const [userdata, setUserData] = useState([]);
+    const fetchUserData = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/api/usuarios"); // Asegúrate de que esta ruta esté correcta
+            setUserData(response.data);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error al obtener los productos:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchUserData();
+    }, []);
+
+    const handleSaveuser = async (newUser) => {
+        
+        try {
+            await axios.post("http://localhost:3000/api/usuarios", newUser); 
+            fetchUserData(); 
+        } catch (error) {
+            console.error("Error al guardar el usuario:", error);
+        }
+    };
+
+    const handleEditProduct = async (updateduser) => {
+        if (!updateduser.id) {
+            console.error("La ID del usuario no está definida");
+            return; // Detener la acción si la ID no está presente
+        }
+        try {
+            await axios.put(`http://localhost:3000/api/usuarios/${updateduser.id}`, updateduser); 
+            fetchUserData();
+            closeModal();
+        } catch (error) {
+            console.error("Error al editar el producto:", error);
+        }
+    };
+    const handleEditClick = (product) => {
+        setEditProduct(product); 
+        openModal(); 
+    };
+
+    const handleDeleteProduct = async (deleteProduct) => {
+        try {
+            await axios.put(`http://localhost:3000/api/usuarios/delete/${deleteProduct.id}`);
+            fetchUserData();
+        } catch (error) {
+            console.error("Error al eliminar el producto:", error);
+            
+        }
+    };
+
+
+
+
     return(
         <div className="user-container" >
             <section className="user-header">
                 <Title title='Usuarios' hs="h3" ></Title>
-                <Button text={'Agregar Usuario'} Icon={faPlus} />
+                <Button text={'Agregar Usuario'} Icon={faPlus} onClick={() => { setEditProduct(null); openModal(); }}/>
             </section>
             <section >
-                <Table data={Data} column={columns} />
+                <Table 
+                    data={userdata} 
+                    column={columns} 
+                    onEdit={handleEditClick}
+                    onDelete={handleDeleteProduct}
+                />
             </section>
+            <UserModal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                onSave={editProduct ?  handleEditProduct:handleSaveuser }
+                initialData={editProduct}
+            
+            />
             
         </div>
     )

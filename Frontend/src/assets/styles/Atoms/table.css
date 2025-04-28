@@ -54,6 +54,28 @@
     margin-right: 8px; /* Espaciado entre el icono y el texto */
 }
 
+.delete-button {
+    background-color: #f44336; /* Rojo */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* Rojo oscuro */
+}
+
+/* Estilo para el icono dentro del botón */
+.delete-button .p-icon {
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+}
+
 /* Personalización para el scroll */
 .p-datatable-scrollable {
     max-height: 600px;
