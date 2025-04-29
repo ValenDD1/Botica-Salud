@@ -4,6 +4,6 @@ const atencionClienteController=require('../controllers/atencionClienteControlle
 
 router.get('/',atencionClienteController.getAtencionClientes);
 router.post('/',atencionClienteController.addAtencionCliente);
-
+router.put('/delete/:id',atencionClienteController.deleteService);
 
 module.exports=router;
