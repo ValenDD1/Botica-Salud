@@ -16,25 +16,49 @@ export const History=()=>{
 
     const navigate=useNavigate();
 
+    const [inventario,setInventario]=useState([]);
+    const [ventas,setVentas]=useState([]);
+    const [servicios,setServicios]=useState([]);
+
+    const HandleInventarioProduct=async()=>{
+        const response=await fetch('http://localhost:3000/api/historial/inventario');
+        const data=await response.json();
+        setInventario(data[0].total);
+    }
+    const HandleVentas=async()=>{
+        const response=await fetch('http://localhost:3000/api/historial/ganancias');
+        const data=await response.json();
+        setVentas(`$ ${data[0].ganancias}`);
+    }
+    const HandleServicios=async()=>{
+        const response=await fetch('http://localhost:3000/api/historial/consultas');
+        const data=await response.json();
+        setServicios(data[0].filas);
+    }
+
+    HandleInventarioProduct();
+    HandleVentas();
+    HandleServicios();
+
     const Data=[
         {
             nombre:'inventario',
             icono: faCube,
-            cantidad:109,
+            cantidad:inventario,
             onClick:()=> navigate('/inventario')
-            
+
 
         },
         {
             nombre:'Consultas',
             icono: faUser,
-            cantidad:10,
+            cantidad:servicios,
             onClick:()=> navigate('/servicios')
         },
         {
             nombre:'Ganancias',
             icono:faDollar,
-            cantidad:123.67,
+            cantidad:ventas,
             onClick:()=> navigate('/ventas')
         }
     ]
@@ -45,7 +69,7 @@ export const History=()=>{
 
     useEffect(() => {
         const data = {
-            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
             datasets: [
                 {
                     label: 'Ventas',
@@ -84,7 +108,7 @@ export const History=()=>{
     useEffect(() => {
         const documentStyle = getComputedStyle(document.documentElement);
         const data = {
-            labels: ['A', 'B', 'C'],
+            labels: ['pasta dental', 'panadol', 'paracetamol'],
             datasets: [
                 {
                     data: [540, 325, 702],

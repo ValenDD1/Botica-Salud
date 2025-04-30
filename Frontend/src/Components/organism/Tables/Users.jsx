@@ -25,8 +25,13 @@ export const UserTable=()=>{
     const [userdata, setUserData] = useState([]);
     const fetchUserData = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/usuarios"); // Asegúrate de que esta ruta esté correcta
-            setUserData(response.data);
+            const response = await axios.get("http://localhost:3000/api/usuarios"); 
+            const transformedData = response.data.map(user => ({
+                ...user,
+                estado: user.estado === 1 ? 'Activo' : 'Inactivo'
+            }))
+            setUserData(transformedData);
+
             setLoading(false);
         } catch (error) {
             console.error("Error al obtener los productos:", error);

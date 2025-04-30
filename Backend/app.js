@@ -9,6 +9,7 @@ const inventa = require('./Routes/InventarioRoutes'); // Rutas de inventario
 const usuaria=require('./Routes/UserRoutes');
 const sales=require('./Routes/SalesRoutes');
 const atencion=require('./Routes/AtencionClienteRoutes');
+const History = require('./Routes/HistoryRoutes');
 
 const app = express();
 const port = 3000;
@@ -22,6 +23,7 @@ app.use('/api/inventario', inventa);
 app.use('/api/usuarios', usuaria);
 app.use('/api/ventas', sales);
 app.use('/api/atencion', atencion);
+app.use('/api/historial', History);
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);

@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 exports.getAllInventarios = (req, res) => {
-    db.query('SELECT * FROM inventario', (err, results) => {
+    db.query('SELECT * FROM inventario WHERE stock > 0', (err, results) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }

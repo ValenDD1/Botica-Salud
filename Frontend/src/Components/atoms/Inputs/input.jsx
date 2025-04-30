@@ -1,6 +1,6 @@
 import '../../../assets/styles/Atoms/input.css'
 
-export const Input = ({text,type,value,onChange})=>{
+export const Input = ({text,type,value,onChange,readOnly=false})=>{
     return(
         
         <input 
@@ -9,7 +9,7 @@ export const Input = ({text,type,value,onChange})=>{
             placeholder={text}   
             value={value}
             onChange={onChange}
-        
+            readOnly={readOnly}
         />
         
     )
